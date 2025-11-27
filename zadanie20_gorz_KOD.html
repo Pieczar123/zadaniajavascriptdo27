@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kod źródłowy</title>
+</head>
+<body>
+    <pre>
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="pl"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;title&gt;Obliczanie długości boków trójkąta&lt;/title&gt;
+            &lt;link rel="stylesheet" href="styl.css"&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;Obliczanie długości boków trójkąta&lt;/h1&gt;
+            &lt;form&gt;
+                Punkt A: &lt;input type="text" id="xa_gorz" placeholder="xa"&gt;
+                &lt;input type="text" id="ya_gorz" placeholder="ya"&gt;&lt;br&gt;
+                Punkt B: &lt;input type="text" id="xb_gorz" placeholder="xb"&gt;
+                &lt;input type="text" id="yb_gorz" placeholder="yb"&gt;&lt;br&gt;
+                Punkt C: &lt;input type="text" id="xc_gorz" placeholder="xc"&gt;
+                &lt;input type="text" id="yc_gorz" placeholder="yc"&gt;&lt;br&gt;
+                &lt;input type="button" value="Oblicz długości boków" onclick="obliczBoki()"&gt;
+            &lt;/form&gt;
+            
+            &lt;h2&gt;Wyniki:&lt;/h2&gt;
+            &lt;div id="wyniki"&gt;&lt;/div&gt;
+            
+            &lt;script&gt;
+                function obliczOdleglosc(x1, y1, x2, y2) {
+                    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                }
+                
+                function obliczBoki() {
+                    var xa_gorz = parseFloat(document.getElementById("xa_gorz").value);
+                    var ya_gorz = parseFloat(document.getElementById("ya_gorz").value);
+                    var xb_gorz = parseFloat(document.getElementById("xb_gorz").value);
+                    var yb_gorz = parseFloat(document.getElementById("yb_gorz").value);
+                    var xc_gorz = parseFloat(document.getElementById("xc_gorz").value);
+                    var yc_gorz = parseFloat(document.getElementById("yc_gorz").value);
+                    
+                    var ab_gorz = obliczOdleglosc(xa_gorz, ya_gorz, xb_gorz, yb_gorz);
+                    var bc_gorz = obliczOdleglosc(xb_gorz, yb_gorz, xc_gorz, yc_gorz);
+                    var ac_gorz = obliczOdleglosc(xa_gorz, ya_gorz, xc_gorz, yc_gorz);
+                    
+                    document.getElementById("wyniki").innerHTML = "Długość AB: " + ab_gorz.toFixed(2) + " cm&lt;br&gt;" +
+                                                                    "Długość BC: " + bc_gorz.toFixed(2) + " cm&lt;br&gt;" +
+                                                                    "Długość AC: " + ac_gorz.toFixed(2) + " cm";
+                }
+            &lt;/script&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </pre>
+</body>
+</html>

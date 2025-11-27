@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title> Gorzoch </title>
+</head>
+<body>
+
+<h2>Zadanie 26 – Obliczanie pola i obwodu trapezu równoramiennego</h2>
+
+<form name="dane">
+    Górna podstawa a: <input type="number" step="0.01" id="a"><br><br>
+    Dolna podstawa b: <input type="number" step="0.01" id="b"><br><br>
+    Wysokość h: <input type="number" step="0.01" id="h"><br><br>
+
+    <input type="button" value="Oblicz wynik" onclick="oblicz()">
+</form>
+
+<script>
+
+function Pow_gorzoch(a, b, h) {
+    return ((a + b) / 2) * h;
+}
+
+function Obw_gorzoch(a, b, h) {
+    var roznica = Math.abs(b - a);
+    var ramie = Math.sqrt(Math.pow(roznica / 2, 2) + Math.pow(h, 2));
+    return a + b + 2 * ramie;
+}
+
+function oblicz() {
+    var a = parseFloat(document.getElementById("a").value);
+    var b = parseFloat(document.getElementById("b").value);
+    var h = parseFloat(document.getElementById("h").value);
+
+    var pole = Pow_gorzoch(a, b, h);
+    var obw = Obw_gorzoch(a, b, h);
+
+    document.write("<h2>Wyniki obliczeń – Gorzoch</h2>");
+    document.write("Górna podstawa a = " + a + "<br>");
+    document.write("Dolna podstawa b = " + b + "<br>");
+    document.write("Wysokość h = " + h + "<br><br>");
+    document.write("Pole trapezu = " + pole.toFixed(2) + "<br>");
+    document.write("Obwód trapezu = " + obw.toFixed(2) + "<br>");
+}
+
+</script>
+
+</body>
+</html>

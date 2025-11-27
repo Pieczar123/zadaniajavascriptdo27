@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <body>
+ <div style="color:green;font-size:50px;">
+ <script language="JavaScript">
+// Igor GOrzoch1 3F 25.10.2025
+
+ var D1_gorz=prompt("Data1=","");
+ var D2_gorz=prompt("Data2=","");
+ var sekund;
+ var a=parseFloat(D1_gorz);
+ var b=parseFloat(D2_gorz);
+ sekund=(a-b)*24*60*60;
+ document.write("Ilość sekund między dniami "+a+" i "+b+" = "+sekund+"<br>");
+ function okno_zamknij_gorzoch()
+ {
+ window.close()
+ }
+ </script>
+ </div>
+ <input type="button" value="zamknij okno" onclick="okno_zamknij_gorzoch()"/>
+ </body>
+ </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Obliczanie długości boków trójkąta</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <h1>Obliczanie długości boków trójkąta</h1>
+    <form>
+        Punkt A: <input type="text" id="xa_gorz" placeholder="xa">
+        <input type="text" id="ya_gorz" placeholder="ya"><br>
+        Punkt B: <input type="text" id="xb_gorz" placeholder="xb">
+        <input type="text" id="yb_gorz" placeholder="yb"><br>
+        Punkt C: <input type="text" id="xc_gorz" placeholder="xc">
+        <input type="text" id="yc_gorz" placeholder="yc"><br>
+        <input type="button" value="Oblicz długości boków" onclick="obliczBoki()">
+    </form>
+    
+    <h2>Wyniki:</h2>
+    <div id="wyniki"></div>
+    
+    <script>
+        function obliczOdleglosc(x1, y1, x2, y2) {
+            return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        }
+        
+        function obliczBoki() {
+            var xa_gorz = parseFloat(document.getElementById("xa_gra").value);
+            var ya_gorz = parseFloat(document.getElementById("ya_gra").value);
+            var xb_gorz = parseFloat(document.getElementById("xb_gra").value);
+            var yb_gorz = parseFloat(document.getElementById("yb_gra").value);
+            var xc_gorz = parseFloat(document.getElementById("xc_gra").value);
+            var yc_gorz = parseFloat(document.getElementById("yc_gra").value);
+            
+            var ab_gorz = obliczOdleglosc(xa_gorz, ya_gorz, xb_gorz, yb_gorz);
+            var bc_gorz = obliczOdleglosc(xb_gorz, yb_gorz, xc_gorz, yc_gorz);
+            var ac_gorz = obliczOdleglosc(xa_gorz, ya_gorz, xc_gorz, yc_gorz);
+            
+            document.getElementById("wyniki").innerHTML = "Długość AB: " + ab_gorz.toFixed(2) + " cm<br>" +
+                                                            "Długość BC: " + bc_gorz.toFixed(2) + " cm<br>" +
+                                                            "Długość AC: " + ac_gorz.toFixed(2) + " cm";
+        }
+    </script>
+</body>
+</html>
